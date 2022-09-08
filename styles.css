@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: rgb(95, 17, 169);
+    color: #fff;
+}
+
+@font-face {
+    font-family: airy;
+    src: url(fonts/Airy.otf);
+}
+
+#container {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#logo {
+    box-sizing: border-box;
+    width: 300px;
+    height: 300px;
+    padding: 25px 0;
+    border-radius: 50%;
+    background-color: #fff;
+    text-align: center;
+    margin: 0 auto 20px;
+}
+
+#logo img {
+    height: 200px;
+    vertical-align: baseline;
+    margin: auto;
+}
+
+#labs-tipo {
+    font-family: 'airy';
+    color:rgb(95, 17, 169);
+    display: block;
+    font-size: 37px;
+    text-align: center;
+    padding: 2px 0 0 5px;
+}
+
+#container p, #container h1, #container h2 {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#address {
+    text-align: center ;
+}
+
+.emphasis {
+    font-style: italic;
+    text-decoration: dashed;
+}
