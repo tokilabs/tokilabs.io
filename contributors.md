@@ -6,6 +6,8 @@
 
 [![Contribution Stats](https://github-contribution-stats.vercel.app/api/?username=albnunes)](https://github.com/albnunes)
 
+[![Contribution Stats](https://github-contribution-stats.vercel.app/api/?username=GabrielaRsanches)](https://github.com/GabrielaRsanches)
+
 [![Contribution Stats](https://github-contribution-stats.vercel.app/api/?username=rairezende)](https://github.com/rairezende)
 
 [![Contribution Stats](https://github-contribution-stats.vercel.app/api/?username=raquellenn)](https://github.com/raquellenn)
