@@ -1,0 +1,258 @@
+---
+import Layout from '@multilaunch/ui/layout';
+import queryCMS from '@multilaunch/ui/cms';
+import DraftModeQueryListener from '@multilaunch/ui/draft-mode-query-listener';
+import getAvailableLocales, { getFallbackLocale } from '@multilaunch/ui/i18n';
+import Heading from '@multilaunch/ui/heading';
+import Line from '@multilaunch/ui/line';
+import ContactForm from '@multilaunch/ui/contact-form';
+import ContactFormVertical from '@multilaunch/ui/contact-form-vertical';
+import TestimonialCarousel from '@multilaunch/ui/testimonial-carousel';
+import PrimaryButton from '@multilaunch/ui/primary-button';
+import { StructuredText } from '@datocms/astro';
+
+import '../../../styles/style.css';
+
+export async function getStaticPaths() {
+  const availableLocales = await getAvailableLocales();
+  
+  const allBrandsQuery = `
+    query {
+      allBrands {
+        slug
+      }
+    }
+  `;
+  const { allBrands } = await queryCMS(allBrandsQuery);
+
+  const paths = [];
+
+  for (const locale of availableLocales) {
+    for (const brand of allBrands) {
+      paths.push({
+        params: { locale, slug: brand.slug },
+      });
+    }
+  }
+
+  return paths;
+}
+
+const fallbackLocale = await getFallbackLocale();
+const { locale, slug } = Astro.params;
+
+const query = `
+  query GetBrandBySlug($locale: SiteLocale, $fallbackLocale: [SiteLocale!], $slug: String) {
+    brand(locale: $locale, fallbackLocales: $fallbackLocale, filter: { slug: { eq: $slug } }) {
+      name
+      productType
+      featuresSubtitle
+      featuresHeadline
+      features {
+        ... on FeatureItemRecord {
+          label
+          url
+        }
+      }
+      brandName
+      brandLogo {
+        url
+        alt
+        width
+        height
+      }      
+      brandLogoDark {
+        url
+        alt
+        width
+        height
+      }
+      actions {
+        ... on PrimaryButtonRecord {
+          label
+          url
+          variant
+        }
+      }      
+      reviews {
+        title
+        reviews {
+          reviewerName
+          reviewDate
+          reviewScore
+          body
+          avatar {
+            alt
+            url
+            width
+            height
+          }
+        }
+      }
+      description {
+        value
+        blocks {
+          ... on RecordInterface {
+            id
+            __typename
+          }
+          ... on ImageRecord {
+            image {
+              url
+              alt
+              width
+              height
+            }
+          }
+        }
+      }
+      images {
+        url
+        alt
+        width
+        height                     
+      }
+      accentColor {
+        hex
+      }
+      _seoMetaTags {
+        tag
+        attributes
+        content
+      }           
+    }
+    contactForm {
+      ctaForm(locale: $locale, fallbackLocales: $fallbackLocale) {
+        displayOptions
+        title
+        subtitle
+        submitUrl
+        submitLabel
+        messagePlaceholder
+        messageLabel
+        logos {
+          darkModeImage {
+            alt
+            url
+            width
+            height
+          }
+          lightModeImage {
+            alt
+            url
+            width
+            height
+          }
+        }
+        emailPlaceholder
+        emailLabel
+        companyTitle
+        companyLogo {
+          darkModeImage {
+            alt
+            url
+            width
+            height
+          }
+          lightModeImage {
+            alt
+            url
+            width
+            height
+          }
+        }
+      }
+    }
+  }
+`;
+
+const { brand, contactForm, layout } = await queryCMS(query, { slug, locale, fallbackLocale });
+
+if (!brand) {
+  return Astro.redirect('/404');
+}
+---
+
+<Layout additionalSeo={brand._seoMetaTags} logos={[brand.brandLogo, brand.brandLogoDark]} primaryColor={brand.accentColor.hex}>
+  <div>
+    <section>
+      <Heading index="01" text={brand.brandName} />      
+      <Line />
+      <div class="pt-6 px-4 pb-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+          <div>
+            <div class="mb-3 text-xs uppercase">{brand.productType}</div>
+            <h1 class="text-3xl break-words">{brand.name}</h1>
+          </div>
+          <div class="text-xs leading-5">
+            <StructuredText
+              data={brand.description}
+            />
+          </div>
+        </div>
+        <div class="product-card bg-card aspect-640/330">
+          <div class="product-overlay"></div>
+          <svg class="product-pattern" width="90%" height="auto" viewBox='0 0 800 800'><rect fill='transparent' width='800' height='800'/><g class="lines" fill='none' stroke-width='1'><path d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/><path d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/><path d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/><path d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/><path d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/></g><g class="joins"><circle  cx='769' cy='229' r='5'/><circle  cx='539' cy='269' r='5'/><circle  cx='603' cy='493' r='5'/><circle  cx='731' cy='737' r='5'/><circle  cx='520' cy='660' r='5'/><circle  cx='309' cy='538' r='5'/><circle  cx='295' cy='764' r='5'/><circle  cx='40' cy='599' r='5'/><circle  cx='102' cy='382' r='5'/><circle  cx='127' cy='80' r='5'/><circle  cx='370' cy='105' r='5'/><circle  cx='578' cy='42' r='5'/><circle  cx='237' cy='261' r='5'/><circle  cx='390' cy='382' r='5'/></g></svg>
+          {brand.images && brand.images.length > 0 && (
+            <img loading="lazy" src={brand.images[0].url} alt={brand.images[0].alt} width={brand.images[0].width} height={brand.images[0].height} class="relative z-10 w-full h-full select-none" />      
+          )}
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <Heading index="02" text={brand.name} />
+      <Line />
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 px-4 pb-4">
+        <div>
+          <div class="mt-6 mb-3 text-xs uppercase">{brand.productType}</div>
+          <h2 class="mb-6 text-3xl">{brand.featuresHeadline}</h2>
+          <div class="mb-6 text-xs leading-4">{brand.featuresSubtitle}</div>
+          <div class="flex flex-wrap gap-4 mb-6">
+            {brand.actions && brand.actions.length > 0 && brand.actions.map(action => (
+              <PrimaryButton label={action.label} url={action.url} variant={action.variant} />              
+            ))}
+          </div>
+        </div>
+        
+        <ul class="">
+          {brand.features && brand.features.length > 0 && brand.features.map(feature => (
+            <li class="p-6">
+              <span class="flex justify-between align-center text-xs">
+                <span class="relative before:absolute before:content-[''] before:right-[calc(100%+8px)] before:top-0 before:bottom-0 before:m-auto before:h-6 before:w-1.5 before:bg-border">
+                  {feature.label}
+                </span>
+                <span class="flex items-center justify-center w-5 h-5 rounded-xs border border-border">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    {brand.reviews && brand.reviews.reviews && brand.reviews.reviews.length > 0 && (
+      <section>
+        <Heading index="03" text={brand.reviews.title} />
+        <TestimonialCarousel reviews={brand.reviews} />
+      </section>
+    )}
+
+    <section>
+      <Heading index="04" text="CTA" />
+      {
+        (() => {
+          switch (contactForm.ctaForm.displayOptions) {
+            case 'vertical_form':
+              return <ContactFormVertical form={contactForm.ctaForm} />;
+            default:
+              return <ContactForm form={contactForm.ctaForm} />;
+          }
+        })()
+      }
+    </section>
+  </div>
+
+  <DraftModeQueryListener query={query} />
+</Layout>

@@ -1,0 +1,154 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import { getLangFromUrl, getUrlWithoutLang, useTranslations, useTranslatedPath } from "@i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const path = getUrlWithoutLang(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+let pages = [
+	{
+		id: "home",
+		initialTitle: "H",
+		title: "Home",
+		class: "home",
+		url: "/",
+	},
+	{
+		id: "services",
+		initialTitle: "S",
+		title: t("services"),
+		class: "services",
+		url: "/services",
+	},
+	{
+		id: "blog",
+		initialTitle: "B",
+		title: "Blog",
+		class: "blog",
+		url: "/blog/",
+	},
+	{
+		id: "contact",
+		initialTitle: "C",
+		title: t("contacts"),
+		class: "contact",
+		url: "/contact/",
+	},
+];
+
+const { pathname } = Astro.url;
+---
+
+<header class="header section">
+	{
+		pages.map((page) => (
+			<div class={`menu-item ${page.class}`} data-item-id={page.id}>
+				<a
+					href={translatePath(page.url)}
+					data-title={page.title}
+					class="flex h-full items-center justify-center py-3 font-mono text-xs font-bold uppercase sm:text-base md:text-xl">
+					{page.title}
+				</a>
+			</div>
+		))
+	}
+</header>
+
+<style>
+	header.header {
+		mix-blend-mode: exclusion;
+		height: auto;
+		position: fixed;
+		z-index: 99;
+		gap: 0;
+	}
+</style>
+
+<script>
+	import { gsap } from "gsap";
+	import { ScrollTrigger } from "gsap/ScrollTrigger";
+	import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
+
+	gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin);
+
+	function init() {
+		const homeScrambleTl = gsap
+			.timeline({
+				defaults: {
+					duration: 0.8,
+					ease: "power4.inOut",
+				},
+			})
+			.from("header .menu-item.home a", {
+				scrambleText: {
+					text: "H",
+					speed: 0.4,
+				},
+			});
+
+		const servicesScrambleTl = gsap
+			.timeline({
+				defaults: {
+					duration: 0.8,
+					ease: "power4.inOut",
+				},
+			})
+			.from("header .menu-item.services a", {
+				scrambleText: {
+					text: "S",
+					speed: 0.4,
+				},
+			});
+
+		const blogScrambleTl = gsap
+			.timeline({
+				defaults: {
+					duration: 0.8,
+					ease: "power4.inOut",
+				},
+			})
+			.from("header .menu-item.blog a", {
+				scrambleText: {
+					text: "B",
+					speed: 0.4,
+				},
+			});
+
+		const contactScrambleTl = gsap
+			.timeline({
+				defaults: {
+					duration: 0.8,
+					ease: "power4.inOut",
+				},
+			})
+			.from("header .menu-item.contact a", {
+				scrambleText: {
+					text: "C",
+					speed: 0.4,
+				},
+			});
+
+		const headerScrambleTl = gsap
+			.timeline()
+			.add(homeScrambleTl)
+			.add(servicesScrambleTl, "<=+0.2")
+			.add(blogScrambleTl, "<=+0.2")
+			.add(contactScrambleTl, "<=+0.2");
+
+		ScrollTrigger.create({
+			start: "top top",
+			end: "max",
+			onUpdate: (self) => {
+				self.direction === -1 ? headerScrambleTl.timeScale(1).play() : headerScrambleTl.timeScale(1.5).reverse();
+			},
+		});
+
+		// On mouse hover if the text is scramble unscramble it
+	}
+
+	document.removeEventListener("DOMContentLoaded", init); // astro:page-load
+	document.addEventListener("DOMContentLoaded", init); // astro:page-load
+</script>

@@ -1,0 +1,72 @@
+---
+import Layout from '@multilaunch/ui/layout';
+import queryCMS from '@multilaunch/ui/cms';
+import getAvailableLocales, { getFallbackLocale } from '@multilaunch/ui/i18n';
+import Heading from '@multilaunch/ui/heading';
+import Line from '@multilaunch/ui/line';
+import BrandCard from '@multilaunch/ui/brand-card';
+
+import '../../../styles/style.css';
+
+export async function getStaticPaths() {
+  const availableLocales = await getAvailableLocales();  
+  return availableLocales.map(locale => ({
+    params: { locale }
+  }));
+}
+
+const fallbackLocale = await getFallbackLocale();
+const { locale } = Astro.params;
+
+const query = `
+  query($locale: SiteLocale, $fallbackLocale: [SiteLocale!]) {
+    layout {
+      logo {
+        url
+        alt
+      }
+      logoDark {
+        url
+        alt
+      }      
+    }
+    allBrands(locale: $locale, fallbackLocales: $fallbackLocale) {
+      id
+      name
+      slug
+      productType 
+      accentColor {
+        hex
+      }
+      images {
+        url
+        alt
+      }
+    }
+    home {   
+      _seoMetaTags {
+        tag
+        attributes
+        content
+      }           
+    } 
+  }
+`;
+
+const { allBrands, home, layout } = await queryCMS(query, { locale, fallbackLocale });
+
+---
+
+<Layout additionalSeo={home._seoMetaTags} logos={[layout.logo, layout.logoDark]}>
+  <section>
+    <Heading index="01" text="Our brands" />      
+    <Line />
+    <div class="pt-6 px-4 pb-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        {allBrands.map((brand) => (
+          <BrandCard brand={brand} />
+        ))}
+      </div>
+    </div>
+  </section>      
+</Layout>

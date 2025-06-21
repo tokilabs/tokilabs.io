@@ -1,0 +1,165 @@
+---
+import Layout from '@multilaunch/ui/layout';
+import queryCMS from '@multilaunch/ui/cms';
+import DraftModeQueryListener from '@multilaunch/ui/draft-mode-query-listener';
+import getAvailableLocales, { getFallbackLocale } from '@multilaunch/ui/i18n';
+import Hero from '@multilaunch/ui/hero';
+import Heading from '@multilaunch/ui/heading';
+import Line from '@multilaunch/ui/line';
+import BrandShowcase from '@multilaunch/ui/brand-showcase';
+import ContactForm from '@multilaunch/ui/contact-form';
+import ContactFormVertical from '@multilaunch/ui/contact-form-vertical';
+
+import '../../styles/style.css';
+
+export async function getStaticPaths() {
+  const availableLocales = await getAvailableLocales();  
+  return availableLocales.map(locale => ({
+    params: { locale }
+  }));
+}
+
+const fallbackLocale = await getFallbackLocale();
+const { locale } = Astro.params;
+
+const query = `
+  query Query($locale: SiteLocale, $fallbackLocale: [SiteLocale!]) {
+    layout {
+      logo {
+        url
+        alt
+        width
+        height
+      }
+      logoDark {
+        url
+        alt
+        width
+        height
+      }
+    }
+    home(locale: $locale, fallbackLocales: $fallbackLocale) {
+      _seoMetaTags {
+        tag
+        attributes
+        content
+      }
+      sections(locale: $locale, fallbackLocales: $fallbackLocale) {
+        ... on HeadingRecord {
+          id
+          _modelApiKey
+          index
+          label
+        }
+        ... on HeroSectionRecord {
+          id
+          _modelApiKey
+          heroTitle
+          heroSubtitle
+          heroImage {
+            alt
+            url
+          }
+          ctas {
+            label
+            url
+            variant
+          }
+        }
+        ... on BrandsSectionRecord {
+          id
+          _modelApiKey
+          brands {
+            productType
+            name
+            images {
+              url
+              alt
+              width
+              height
+            }
+            accentColor {
+              hex
+            }
+            slug
+          }
+        }
+        ... on ContactSectionRecord {
+          id
+          _modelApiKey
+          displayOptions
+          title
+          subtitle
+          submitUrl
+          submitLabel
+          messagePlaceholder
+          messageLabel
+          logos {
+            darkModeImage {
+              alt
+              url
+              width
+              height
+            }
+            lightModeImage {
+              alt
+              url
+              width
+              height
+            }
+          }
+          emailPlaceholder
+          emailLabel
+          companyTitle
+          companyLogo {
+            darkModeImage {
+              alt
+              url
+              width
+              height
+            }
+            lightModeImage {
+              alt
+              url
+              width
+              height
+            }
+          }
+        }
+      }     
+    }
+  }
+`;
+
+const { home, layout } = await queryCMS(query, { locale, fallbackLocale });
+---
+
+<Layout additionalSeo={home._seoMetaTags} logos={[layout.logo, layout.logoDark]}>    
+  {
+    home.sections.map((item: any) => {
+      switch (item._modelApiKey) {
+        case 'heading':
+          return (
+            <Heading index={item.index} text={item.label} />
+            <Line />
+          );
+        case 'hero_section':
+          return <Hero hero={item} />;
+        case 'brands_section':
+          return <BrandShowcase brands={item} />;
+        case 'contact_section': {
+          switch (item.displayOptions) {
+            case 'vertical_form':
+              return <ContactFormVertical form={item} />;
+            default:
+              return <ContactForm form={item} />;
+          }
+        }
+        default:
+          return null;
+      }
+    })
+  }
+
+  <DraftModeQueryListener query={query} />
+</Layout>
