@@ -1,0 +1,66 @@
+---
+pubDate: 2019-06-15
+author:
+    name: Saulo Vallory
+    link: /author/saulo-vallory
+title: Crossover for Work
+description: "That time Facebook pulled the rug out from under us and we had to rebuild everything in 30 days with a 40-person team scattered across the globe"
+link: https://crossover.com
+image:
+    source: "@assets/images/logos/crossover.svg"
+    alt: "Crossover logo"
+---
+
+I'll never forget the Slack message that changed everything: "Facebook is shutting down Instagram API access. Effective in 30 days."
+
+It was June 2019, and I was the Product Chief Architect at Crossover for Work. We had multiple products that depended heavily on Instagram data, including Chute, which was basically built around that API. Thirty days to completely rebuild core functionality or watch everything crash.
+
+My first thought? This is impossible.
+
+My second thought? Well, we're going to do it anyway.
+
+## The Oh-Shit Moment
+
+Let me paint you a picture. We had a 40-person development team spread across Brazil, Ukraine, the Philippines, India, and a few other countries. Different time zones, different cultures, different levels of English proficiency. And we needed them all working in perfect coordination to pull off what felt like a technical miracle.
+
+The initial emergency meeting was... chaotic. People were talking over each other, some were panicking, others were trying to minimize the scope. I remember thinking, "If we spend more than one day planning, we won't have enough time to execute."
+
+## Building the War Room
+
+The first thing I did was set up what we called "the war room" - a Slack channel that would be active 24/7. But more importantly, I realized that our normal development process was going to kill us. Code reviews? Gone. Lengthy QA cycles? Gone. Perfect documentation? You guessed it - gone.
+
+Instead, we broke everything down into 2-day sprints. Every developer had to ship working code every 48 hours, no exceptions. If you got stuck, you raised your hand immediately. No suffering in silence.
+
+The breakthrough came when I convinced management to pair every senior developer with a junior one from a different time zone. Suddenly, we had development happening around the clock, with knowledge transfer built right in.
+
+## The 3 AM Wake-Up Calls
+
+Working with a global team during a crisis means your phone never stops buzzing. I got really good at diagnosing production issues while half-asleep. Coffee became a food group.
+
+Around day 15, we hit our lowest point. The new API integration was working, but performance was terrible. Like, "users are complaining on Twitter" terrible. I remember standing in my kitchen at 2 AM, on a video call with developers in Kiev and Manila, trying to figure out why our database queries were taking 30 seconds.
+
+Turns out we were making API calls inside nested loops. Classic mistake when you're moving fast. But here's the thing - normally, this would be caught in code review. We didn't have that luxury.
+
+## What Actually Saved Us
+
+Two things kept us from disaster:
+
+First, we had an incredible QA lead named Maria who basically lived in the staging environment. She caught so many issues before they hit production that I started calling her our guardian angel.
+
+Second, we made friends with Facebook's developer relations team. I spent hours on calls with them, understanding not just what was changing, but why. That context helped us build something that would last beyond the immediate crisis.
+
+## The Final Week
+
+The last week was brutal. We were deploying multiple times per day, running on pure adrenaline and determination. I think I slept about 20 hours total that week.
+
+But something beautiful happened. The team stopped being a collection of individuals and became something more. People were helping each other debug code they didn't write. Developers were writing documentation without being asked. The Ukrainian team started their day by checking on issues the Brazilian team had flagged overnight.
+
+## What We Learned
+
+Did we ship on time? Yes. Was the code perfect? Hell no. But it worked, and our users didn't even notice the transition.
+
+More importantly, we proved something to ourselves. That a distributed team could move mountains when they had clear goals and trusted each other completely.
+
+The system we built in 30 days ended up being more robust than the original. Not because we planned it better, but because building under pressure forces you to focus on what actually matters.
+
+Would I want to do that again? Probably not. But I'm glad we did it once. It showed me what's possible when smart people decide that failure isn't an option.

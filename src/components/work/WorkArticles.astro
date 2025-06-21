@@ -1,0 +1,100 @@
+---
+import { getCollection } from "astro:content";
+import Entry from "@/components/blog/Entry.astro";
+import Title from "@components/global/Title.astro";
+import { getLangFromUrl, useTranslations, useTranslatedPath } from "@i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+const allProjects = (await getCollection("projects"))
+	.filter((project) => {
+		const [projectLang, ...slug] = project.slug.split("/");
+		return projectLang === lang;
+	})
+	.map((project) => {
+		const [projectLang, slug] = project.slug.split("/");
+
+		return {
+			...project,
+			slug: slug,
+		};
+	})
+	.sort((a, b) => Number(b.data.pubDate) - Number(a.data.pubDate));
+---
+
+<section>
+	<div class="mx-auto max-w-7xl px-8 py-12 md:px-12 lg:px-32 lg:py-32">
+		<div class="flex flex-col gap-6 pt-20">
+			<Title title={t("work.title")} subtitle={t("work.subtitle")} />
+		</div>
+		
+		<!-- How We Work Content -->
+		<div class="mt-12 w-full">
+			<div class="prose-styles">
+				<h1>{t("howWeWork.title")}</h1>
+				
+				<h2>{t("howWeWork.headline")}</h2>
+				<p class="text-xl text-slate-600 italic mb-6">{t("howWeWork.subheadline")}</p>
+				
+				<p>{t("howWeWork.body.p1")}</p>
+				<p>{t("howWeWork.body.p2")}</p>
+				<p>{t("howWeWork.body.p3")}</p>
+				
+				<p>{t("howWeWork.body.p4")}</p>
+				<p><strong>{t("howWeWork.body.p5")}</strong></p>
+			</div>
+		</div>
+
+		<!-- Projects Section -->
+		<div class="mt-20">
+			<h2 class="text-3xl font-bold tracking-tight text-slate-900 mb-12">Featured Projects</h2>
+			<div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
+				{
+					allProjects.map((project) => (
+						<Entry
+							url={"/work/" + project.slug}
+							title={project.data.title}
+							description={project.data.description}
+							alt={project.data.title}
+							pubDate={project.data.pubDate.toString().slice(0, 10)}
+							author={project.data.author}
+							image={project.data.image.source}
+						/>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.gradient-element {
+		@apply relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#a2d4a0] to-[#aac887] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem];
+		clip-path: polygon(
+			74.1% 44.1%,
+			100% 61.6%,
+			97.5% 26.9%,
+			85.5% 0.1%,
+			80.7% 2%,
+			72.5% 32.5%,
+			60.2% 62.4%,
+			52.4% 68.1%,
+			47.5% 58.3%,
+			45.2% 34.5%,
+			27.5% 76.7%,
+			0.1% 64.9%,
+			17.9% 100%,
+			27.6% 76.8%,
+			76.1% 97.7%,
+			74.1% 44.1%
+		);
+	}
+	.prose-invert h3 {
+		@apply !text-primary-300;
+	}
+	.prose-invert p {
+		@apply !text-slate-300;
+	}
+</style> 

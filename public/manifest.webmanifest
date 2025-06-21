@@ -4,9 +4,9 @@
 	"display": "standalone",
 	"scope": "/",
 	"start_url": "/",
-	"description": "Web Agency Leading in Performant Web Design Solutions - Mintaka Studio",
-	"name": "Mintaka",
-	"short_name": "Mintaka",
+	"description": "Toki Labs - Software House that works differently. We don't just build what you ask for, we partner with you to discover what you actually need.",
+	"name": "Toki Labs",
+	"short_name": "Toki Labs",
 	"icons": [
 		{
 			"src": "/pwa-64x64.png",

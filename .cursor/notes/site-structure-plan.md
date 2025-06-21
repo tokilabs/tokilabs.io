@@ -49,7 +49,7 @@
 - **Crossover** - SaaS operations, crisis management, team coordination
 - **Cleanify** - Startup migration, TypeScript adoption
 - **Doare** - Microservices architecture transformation
-- **Softo** - Full stack definition and DDD implementation
+- **Camiseteria** - Full stack definition and DDD implementation
 - **Camiseteria.com** - E-commerce, compliance, system modernization
 - **Calligo** - Current happy client
 

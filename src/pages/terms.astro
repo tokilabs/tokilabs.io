@@ -1,16 +1,16 @@
 ---
-import TermsPage from "@/components/infopages/Terms.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import type { AstroSeoProps } from "@astrolib/seo";
+import Terms from "@components/infopages/Terms.astro";
 
 const seo: AstroSeoProps = {
-	title: "Terms of Service - Majestico Studio: Understand Our Terms",
+	title: "Terms of Service - Toki Labs: Understand Our Terms",
 	description:
-		"Read the Terms of Service for Majestico Studio. Learn about our guidelines and your responsibilities when using our web design and SEO services.",
-	canonical: "https://mintaka.co/terms/",
+		"Read the Terms of Service for Toki Labs. Learn about our guidelines and your responsibilities when partnering with our software development services.",
+	canonical: "https://tokilabs.io/terms/",
 };
 ---
 
 <BaseLayout seo={seo}>
-	<TermsPage />
+	<Terms />
 </BaseLayout>

@@ -58,7 +58,7 @@
 2. **Crossover** - Product Chief Architect (2018-2019) 
 3. **Doare** - CTO (2017-2018)
 4. **Cleanify** - Chief Software Architect (2016-2017)
-5. **Softo** - Chief Software Architect and Engineering Manager (2013-2014)
+5. **Camiseteria** - Chief Software Architect and Engineering Manager (2013-2014)
 6. **Camiseteria.com** - Software Architect (2010-2013)
 
 ### Current Client

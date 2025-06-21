@@ -13,7 +13,7 @@ const translatePath = useTranslatedPath(lang);
 	<div class="tagline-arrows">
 		<svg
 			stroke-linecap="round"
-			class="h-[15rem] w-[15rem] rotate-45 md:w-[20rem] md:rotate-0 lg:w-[25rem]"
+			class="h-[15rem] w-[15rem] rotate-45 md:w-[20rem] md:rotate-0 lg:w-[25rem] absolute"
 			stroke-linejoin="round"
 			viewBox="0 0 550 330">
 			<path
@@ -27,7 +27,7 @@ const translatePath = useTranslatedPath(lang);
 			<path class="opacity-0" id="tagline-arrow" stroke="white" stroke-width="12" d="M465.7 172.9l47.1 6-29.8 33.3-17.3-39.3z"></path>
 		</svg>
 	</div>
-	<div class="text col-span-12 flex justify-center font-light">
+	<div class="m-24 text col-span-12 flex justify-center font-light">
 		<p id="services-tagline" class="max-w-5xl text-center text-4xl md:text-5xl lg:text-7xl">
 			{t("tagline")}
 		</p>

@@ -1,0 +1,74 @@
+---
+pubDate: 2014-09-15
+author:
+    name: Saulo Vallory
+    link: /author/saulo-vallory
+title: Camiseteria
+description: "When a Brazilian enterprise software company asked us to design their entire technology stack from scratch - and why Domain Driven Design saved our sanity"
+link: https://camiseteria.com.br
+image:
+    source: "@assets/images/logos/camiseteria.png"
+    alt: "Camiseteria logo"
+---
+
+Back in 2014, Camiseteria came to us with what seemed like an impossible request: "We want to build enterprise software, but we don't know how to build enterprise software. Can you help us figure out... everything?"
+
+They weren't kidding. They needed us to define their entire technology stack, architectural patterns, development processes, and somehow make it all work for complex business systems that would need to integrate with whatever their enterprise clients were already using.
+
+No pressure, right?
+
+## The Blank Canvas Problem
+
+Starting from zero sounds liberating until you realize you have to make the right choice on literally everything. What database? Which framework? How do we handle authentication? What about deployment? Monitoring? Error handling?
+
+Every decision had consequences that would ripple through every project they'd ever build. Choose wrong, and they'd be stuck with technical debt before they even shipped their first product.
+
+Our team spent the first month just understanding what Camiseteria's clients actually needed. We interviewed their sales team, sat in on client calls, and even visited a few enterprise customers to see how they actually used software day-to-day.
+
+That's when we discovered the real challenge: enterprise software isn't just complicated - it's complex. There's a difference.
+
+## Why Domain Driven Design Wasn't Just Buzzword Compliance
+
+Every enterprise has its own language for describing its business. What one company calls a "customer," another calls a "client," and a third calls an "account." Same concept, different context, different rules.
+
+We realized that if we tried to build generic enterprise software, we'd end up with something that sort of worked for everyone but was perfect for no one. That's when Domain Driven Design stopped being a fancy architecture pattern and became our survival strategy.
+
+DDD forced us to think about business logic first, technology second. Instead of asking "How do we build this feature?" we started asking "What problem are we actually solving?"
+
+The breakthrough came when we were working on their first major client project. Instead of cramming the client's business processes into our software, we designed the software around their business processes. Revolutionary? No. Effective? Absolutely.
+
+## The Architecture That Grew With Them
+
+Here's something nobody tells you about enterprise architecture: it's not about building the perfect system. It's about building a system that can evolve without breaking everything else.
+
+We designed their stack around boundaries - clear separation between different business domains, well-defined interfaces, and the ability to replace any component without affecting the others. 
+
+The .NET Framework was the obvious choice for enterprise work in Brazil at the time, but we made sure everything was modular enough that they could swap out pieces as technology evolved.
+
+## The Team That Had to Learn Everything
+
+Building the technology was only half the battle. We also had to help Camiseteria build a team that could maintain and extend what we'd created.
+
+The challenge was that most of the developers they could hire had experience with simple web applications, not complex enterprise systems. We ended up creating what was essentially a crash course in enterprise software development.
+
+Every architectural decision came with documentation explaining not just what we did, but why we did it. Every code review became a teaching moment. Every project retrospective included lessons about both the technical and business sides of the work.
+
+## What Actually Worked
+
+Within two years, Camiseteria was successfully delivering enterprise solutions to clients that would have been impossible with their original approach. More importantly, they were able to take on increasingly complex projects because their architecture could handle the complexity.
+
+The DDD approach meant that when clients asked for changes (and they always ask for changes), the development team could implement them without rewriting entire systems. Business rules lived in the right places, data flowed predictably, and new features integrated cleanly with existing functionality.
+
+## The Real Test
+
+The real validation came three years later when one of their major clients wanted to integrate their system with a completely different ERP platform. In the old world, this would have meant months of custom development and probably some duct tape and prayer.
+
+With the architecture we'd built, it took two weeks. The boundary-based design meant they could add new integration points without touching the core business logic.
+
+## What We Learned
+
+Enterprise software isn't just about handling scale - it's about handling change. The companies that succeed are the ones that can adapt their systems as their business evolves.
+
+Domain Driven Design gave Camiseteria a framework for thinking about complexity that went beyond just writing code. It helped them understand their clients' businesses better, which made them better partners and ultimately more successful.
+
+Looking back, we're proud that the foundation we built with Camiseteria became the cornerstone of their success in the enterprise market. But more than that, we're proud that we helped them build not just better software, but a better way of thinking about software.

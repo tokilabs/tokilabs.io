@@ -9,11 +9,11 @@ const translatePath = useTranslatedPath(lang);
 const { image, project, link, description, class: className } = Astro.props;
 ---
 
-<li class:list={["flex flex-col", className]}>
-	<a href={translatePath(link)} aria-label={`Project ${project}`}>
-		<Image class="h-[25rem] rounded-md object-cover lg:rounded-lg" src={image} alt={project} />
+<li class:list={["flex flex-col bg-white rounded-lg overflow-hidden shadow-md", className]}>
+	<a href={translatePath(link)} aria-label={`Project ${project}`} class="p-4 block">
+		<Image class="w-full h-64 project-logo-image" src={image} alt={project} />
 	</a>
-	<div class="px-2 py-8">
+	<div class="p-6">
 		<a href={translatePath(link)} class="flex items-center justify-between text-base font-medium lg:gap-x-8">
 			<h3 class="font-mono text-lg font-medium uppercase tracking-wide md:mt-0 lg:text-xl">
 				{project}
@@ -23,6 +23,14 @@ const { image, project, link, description, class: className } = Astro.props;
 				<span class="sr-only">{project}</span> &nbsp; &rarr;
 			</span>
 		</a>
-		{description && <p class="mt-8 line-clamp-2 text-sm text-slate-500">{description}</p>}
+		{description && <p class="mt-4 line-clamp-3 text-sm text-slate-500">{description}</p>}
 	</div>
 </li>
+
+<style>
+	.project-logo-image {
+		object-fit: contain; /* or scale-down */
+		/* You might also want to set a background color if images have transparency and padding */
+		/* background-color: #f0f0f0; */ 
+	}
+</style>

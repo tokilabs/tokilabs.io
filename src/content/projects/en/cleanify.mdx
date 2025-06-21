@@ -1,0 +1,62 @@
+---
+pubDate: 2017-03-15
+author:
+    name: Saulo Vallory
+    link: /author/saulo-vallory
+title: Cleanify
+description: "When a Bay Area cleaning startup needed to modernize their entire codebase without breaking everything - how our team helped them think differently about TypeScript"
+link: https://cleanify.com
+image:
+    source: "@assets/images/logos/cleanify.jpg"
+    alt: "Cleanify logo"
+---
+
+You know that moment when you inherit a codebase and think "well, this is going to be interesting"? That's exactly how our team felt when we first dove into Cleanify's code in 2017. This was a promising on-demand cleaning startup in the Bay Area, but their code was... let's call it "organically grown."
+
+The thing about fast-moving startups is they prioritize shipping over structure. And honestly, that's usually the right call early on. But Cleanify had reached that inflection point where technical debt was starting to slow them down more than it was helping them move fast.
+
+## The Real Challenge
+
+Sure, we could say "legacy codebase hindering development" - that's what consultants write in reports. But the reality was messier than that. Their team was smart, but they were writing JavaScript like it was 2012. Type errors were causing bugs that took hours to debug. New developers needed weeks to understand how everything connected.
+
+I remember sitting in their downtown SF office with our team, watching one of their developers spend an entire morning tracking down a bug that TypeScript would have caught in about three seconds. That's when we knew the migration had to happen.
+
+## How We Actually Did It
+
+The tricky part wasn't the technical migration - it was keeping their team productive while we essentially rebuilt the foundation underneath them. We've seen migrations kill productivity for months, and startups don't have that luxury.
+
+Our approach was incremental. We started with the most critical files, the ones that broke most often. Converted the data models first, then worked our way out. Every converted file had to pass both the old and new test suites.
+
+The breakthrough moment came about three weeks in. Sarah, one of their frontend developers, was refactoring a component and said "Oh, I get it now. The computer is actually helping me think." That's when we knew their team was starting to see TypeScript as a tool, not an obstacle.
+
+## What Actually Changed
+
+Within six months, their bug reports dropped by about 60%. Not because the business logic was simpler, but because an entire class of errors just... disappeared. The "undefined is not a function" errors that used to eat up debugging time became compilation errors that got caught before deployment.
+
+But the bigger win was cultural. Their team started thinking differently about code structure. When the type system forces you to be explicit about your data flow, you naturally write more modular, testable code.
+
+Their development velocity actually increased after the migration, which surprised everyone. Turns out when you spend less time debugging silly mistakes, you have more time for building features.
+
+## The Part That Surprised Us
+
+What we didn't expect was how much the migration helped with onboarding. New developers could understand the codebase faster because the types documented the intended behavior. It became a form of living documentation that actually stayed up to date.
+
+We also learned something about change management. The developers who were most resistant to TypeScript at the beginning became its biggest advocates once they experienced fewer 3 AM debugging sessions.
+
+Looking back, the technical migration was the easy part. The real challenge was helping a team shift their mental model from "ship fast and fix later" to "ship fast and fix early." TypeScript was just the tool that made that possible.
+
+Would this approach work for every startup? Probably not. But for a team that was ready to level up their engineering practices, it was exactly what they needed.
+
+**Key Achievements:**
+- **TypeScript Migration:** Spearheaded complete codebase migration to TypeScript, improving code quality and developer productivity
+- **Architecture Modernization:** Implemented newer architectural patterns that supported rapid feature development
+- **Engineering Leadership:** Translated complex business requirements into actionable, measurable development tasks
+- **Process Innovation:** Established development workflows that balanced startup agility with code quality
+- **Team Development:** Mentored development team through modern practices and architectural decisions
+- **Scalability Planning:** Designed systems architecture to support anticipated user growth and feature expansion
+
+**Technologies:** TypeScript, Node.js, Modern JavaScript frameworks, Microservices architecture, API design
+
+**Business Impact:** The technical transformation enabled Cleanify to accelerate feature development, improve system reliability, and scale operations to meet growing market demand. The modernized codebase became a competitive advantage in the fast-moving on-demand services market.
+
+**Team Feedback:** Recognized for detail-oriented approach, deep technical knowledge, and ability to make complex technical concepts accessible to business stakeholders. Known for creating positive team dynamics even during challenging technical transitions.

@@ -1,0 +1,37 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { AstroSeoProps } from "@astrolib/seo";
+import WorkArticles from "@components/work/WorkArticles.astro";
+
+const seo: AstroSeoProps = {
+	title: "Toki Labs Work: How We Approach Software Development",
+	description:
+		"Discover how Toki Labs approaches software development. See our process, philosophy, and featured projects that showcase our expertise in building robust solutions.",
+	canonical: "https://tokilabs.io/work/",
+	openGraph: {
+		url: "https://tokilabs.io/work",
+		title: "Toki Labs Work: How We Approach Software Development",
+		description:
+			"Learn about our development approach and explore featured projects from Toki Labs. See how we solve complex problems with elegant solutions.",
+		images: [
+			{
+				url: "https://tokilabs.io/opengraph/social-og.jpg",
+				width: 1200,
+				height: 630,
+				alt: "Social open graph image of Toki Labs Work",
+				type: "image/jpeg",
+			},
+		],
+		site_name: "Toki Labs",
+	},
+	twitter: {
+		handle: "@tokilabs",
+		site: "@tokilabs",
+		cardType: "summary_large_image",
+	},
+};
+---
+
+<BaseLayout seo={seo}>
+	<WorkArticles />
+</BaseLayout> 

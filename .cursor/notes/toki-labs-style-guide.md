@@ -40,6 +40,14 @@
 - Mention specific technologies and their benefits
 - Quantify achievements wherever possible
 
+### 5. Write Like a Human, Not a Marketing Bot
+- Vary sentence and paragraph lengths naturally
+- Include conversational asides and genuine thoughts
+- Admit when something was harder than expected or didn't go perfectly
+- Use contractions and casual language where appropriate
+- Share the messy, imperfect reality behind the polished outcomes
+- Start with stories and personal experiences, not abstract concepts
+
 ## Content Structure Templates
 
 ### Project/Achievement Description
@@ -77,6 +85,16 @@
 - Superlatives without backing (avoid "best," "perfect," "revolutionary")
 - Passive voice when active is clearer
 - Industry buzzwords without substance
+
+### AI-Sounding Language to Avoid
+- "In today's rapidly evolving [industry]..."
+- "Let's dive deep into..."
+- "Key takeaways include..."
+- "Cutting-edge solutions"
+- "Game-changing innovation"
+- Perfectly structured sections with identical formatting
+- Generic opening paragraphs that could apply to any company
+- Lists of benefits without specific examples or context
 
 ## Messaging Hierarchy
 

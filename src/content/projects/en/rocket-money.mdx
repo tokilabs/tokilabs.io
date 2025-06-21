@@ -1,0 +1,60 @@
+---
+pubDate: 2021-12-15
+author:
+    name: Saulo Vallory
+    link: /author/saulo-vallory
+title: Rocket Money (Truebill)
+description: "Building financial tools that millions of people actually use - the pay advance feature that had to work perfectly the first time"
+link: https://rocketmoney.com
+image:
+    source: "@assets/images/logos/truebill.jpeg"
+    alt: "Truebill/Rocket Money logo"
+---
+
+There's something uniquely terrifying about building financial features. One bug, and real people lose real money. When Rocket Money (then called Truebill) asked us to build their pay advance system, we knew we were stepping into that high-stakes world where "move fast and break things" suddenly becomes "move carefully and test everything twice."
+
+The concept was elegant: let people get paid early when they need it, then automatically deduct it from their next paycheck. Simple idea, complex execution.
+
+## The Challenge We Didn't See Coming
+
+Everyone talks about the technical complexity of financial integrations - working with Synapse and Stripe, handling compliance, managing edge cases. But what really kept our team up at night was the human element.
+
+We weren't just building a feature; we were building something that people would rely on during financial emergencies. The single mom who needs grocery money two days before payday. The college student whose car broke down. These weren't abstract user personas - they were real people with real problems.
+
+That responsibility changed how we approached everything.
+
+## Building Trust in Code
+
+Our team spent weeks just understanding the compliance requirements. Financial regulations aren't suggestions - they're the law. And the penalties for getting it wrong aren't just bad reviews; they're federal investigations.
+
+We built the system with what we called "paranoid architecture." Every transaction had multiple verification steps. Every edge case had a fallback. Every calculation was double-checked by independent functions.
+
+The integration with Synapse was particularly tricky. Their API documentation was... let's say "optimistic." We ended up having weekly calls with their engineering team, walking through scenarios that their docs didn't cover. "What happens if someone's bank account gets closed between the advance and the payback?" Turns out, nobody had thought about that.
+
+## The Testing That Never Ended
+
+You can't really test financial software with fake money. Well, you can, but it doesn't tell you what you need to know. So we built an elaborate staging environment that simulated real bank transactions without moving actual funds.
+
+Our QA process was intense. We tested every possible failure scenario we could imagine, and then a few more. What if the user's employer changes their direct deposit timing? What if there's a bank holiday? What if someone tries to game the system?
+
+The breakthrough came when we realized we needed to think like our users' employers' payroll systems. That's when we built the automatic payroll deduction feature that just... worked. Users didn't have to remember to pay us back. It happened automatically on payday.
+
+## The Documentation Movement
+
+One thing that surprised the Rocket Money team was how much we focused on documentation. But here's the thing - in fintech, your documentation isn't just helpful; it's evidence. If something goes wrong, regulators are going to ask to see your processes.
+
+We ended up creating what became their company-wide documentation standard. Everything from API endpoints to business logic decisions got documented in their Notion workspace. It started as a compliance requirement but became a cultural shift.
+
+## What Actually Worked
+
+The pay advance feature launched without any major incidents, which in fintech is basically a miracle. But more importantly, it worked for users. The default rate was lower than projected. Customer satisfaction scores were higher than expected.
+
+The subscription management system we rebuilt ended up being even more successful. By improving the cancellation flow - making it easier for people to downgrade instead of leaving entirely - we actually reduced churn while improving customer satisfaction.
+
+## The Part We're Most Proud Of
+
+Six months after launch, we got a support ticket from a user. She thanked us for the pay advance feature because it helped her avoid an overdraft fee that would have cascaded into a series of financial problems.
+
+That's when we knew we'd built something that mattered.
+
+Building financial software isn't just about handling money; it's about understanding that behind every transaction is a person trying to make their life a little bit easier. We're proud that our work at Rocket Money helped millions of people take better control of their finances.

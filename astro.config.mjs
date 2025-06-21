@@ -27,7 +27,7 @@ export default defineConfig({
 	site: "https://tokilabs.io",
 	i18n: {
 		defaultLocale: "en",
-		locales: ["en", "it"],
+		locales: ["en", "pt"],
 	},
 	markdown: {
 		drafts: true,

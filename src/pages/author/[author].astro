@@ -18,9 +18,9 @@ export async function getStaticPaths() {
 const author = Astro.props;
 
 const seo: AstroSeoProps = {
-	title: author.data.name,
+	title: `${author.data.name} | Toki Labs`,
 	description: author.data.description,
-	canonical: `https://mintaka.co/author/${author.slug}/`,
+	canonical: `https://tokilabs.io/author/${author.slug}/`,
 };
 ---
 

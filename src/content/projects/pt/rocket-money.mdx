@@ -1,0 +1,60 @@
+---
+pubDate: 2021-12-15
+author:
+    name: Saulo Vallory
+    link: /author/saulo-vallory
+title: Rocket Money (Truebill)
+description: "Construindo ferramentas financeiras que milhões de pessoas realmente usam - a funcionalidade de antecipação de pagamento que tinha que funcionar perfeitamente na primeira vez"
+link: https://rocketmoney.com
+image:
+    source: "@assets/images/logos/truebill.jpeg"
+    alt: "Logo da Truebill/Rocket Money"
+---
+
+Há algo unicamente aterrorizante sobre construir funcionalidades financeiras. Um bug, e pessoas reais perdem dinheiro real. Quando o Rocket Money (então chamado Truebill) nos pediu para construir o sistema de antecipação de pagamento, sabíamos que estávamos entrando naquele mundo de alto risco onde "mova rápido e quebre coisas" de repente vira "mova cuidadosamente e teste tudo duas vezes."
+
+O conceito era elegante: deixar as pessoas receberem antecipado quando precisassem, depois deduzir automaticamente do próximo salário. Ideia simples, execução complexa.
+
+## O Desafio Que Não Vimos Chegando
+
+Todo mundo fala sobre a complexidade técnica das integrações financeiras - trabalhar com Synapse e Stripe, lidar com compliance, gerenciar casos extremos. Mas o que realmente mantinha nossa equipe acordada à noite era o elemento humano.
+
+Não estávamos apenas construindo uma funcionalidade; estávamos construindo algo em que as pessoas confiariam durante emergências financeiras. A mãe solteira que precisa de dinheiro para comida dois dias antes do salário. O estudante universitário cujo carro quebrou. Esses não eram personas abstratas de usuário - eram pessoas reais com problemas reais.
+
+Essa responsabilidade mudou como abordamos tudo.
+
+## Construindo Confiança em Código
+
+Nossa equipe passou semanas apenas entendendo os requisitos de compliance. Regulamentações financeiras não são sugestões - são lei. E as penalidades por errar não são apenas avaliações ruins; são investigações federais.
+
+Construímos o sistema com o que chamamos de "arquitetura paranoica." Cada transação tinha múltiplas etapas de verificação. Cada caso extremo tinha um fallback. Cada cálculo era verificado duas vezes por funções independentes.
+
+A integração com o Synapse foi particularmente complicada. A documentação da API deles era... vamos dizer "otimista." Acabamos tendo ligações semanais com a equipe de engenharia deles, passando por cenários que a documentação não cobria. "O que acontece se a conta bancária de alguém for fechada entre o adiantamento e o pagamento de volta?" Acontece que ninguém tinha pensado nisso.
+
+## O Teste Que Nunca Terminou
+
+Você não pode realmente testar software financeiro com dinheiro falso. Bem, pode, mas não te diz o que você precisa saber. Então construímos um ambiente de staging elaborado que simulava transações bancárias reais sem mover fundos reais.
+
+Nosso processo de QA foi intenso. Testamos todos os cenários de falha possíveis que conseguimos imaginar, e depois mais alguns. E se o empregador do usuário mudar o timing do depósito direto? E se houver um feriado bancário? E se alguém tentar burlar o sistema?
+
+O avanço veio quando percebemos que precisávamos pensar como os sistemas de folha de pagamento dos empregadores dos nossos usuários. Foi aí que construímos a funcionalidade de dedução automática da folha que simplesmente... funcionou. Os usuários não tinham que lembrar de nos pagar de volta. Acontecia automaticamente no dia do salário.
+
+## O Movimento de Documentação
+
+Uma coisa que surpreendeu a equipe do Rocket Money foi o quanto focamos em documentação. Mas aqui está a questão - em fintech, sua documentação não é apenas útil; é evidência. Se algo der errado, reguladores vão pedir para ver seus processos.
+
+Acabamos criando o que se tornou o padrão de documentação de toda a empresa. Tudo, desde endpoints de API até decisões de lógica de negócio, foi documentado no workspace do Notion deles. Começou como um requisito de compliance mas se tornou uma mudança cultural.
+
+## O Que Realmente Funcionou
+
+A funcionalidade de antecipação de pagamento foi lançada sem nenhum incidente maior, o que em fintech é basicamente um milagre. Mas mais importante, funcionou para os usuários. A taxa de inadimplência foi menor que o projetado. Os scores de satisfação do cliente foram maiores que o esperado.
+
+O sistema de gestão de assinaturas que reconstruímos acabou sendo ainda mais bem-sucedido. Ao melhorar o fluxo de cancelamento - tornando mais fácil para as pessoas fazerem downgrade em vez de sair completamente - na verdade reduzimos o churn enquanto melhoramos a satisfação do cliente.
+
+## A Parte De Que Mais Nos Orgulhamos
+
+Seis meses após o lançamento, recebemos um ticket de suporte de uma usuária. Ela nos agradeceu pela funcionalidade de antecipação de pagamento porque a ajudou a evitar uma taxa de saque a descoberto que teria cascateado numa série de problemas financeiros.
+
+Foi aí que soubemos que havíamos construído algo que importava.
+
+Construir software financeiro não é apenas sobre lidar com dinheiro; é sobre entender que por trás de cada transação há uma pessoa tentando tornar sua vida um pouco mais fácil. Nos orgulhamos de que nosso trabalho no Rocket Money ajudou milhões de pessoas a ter melhor controle de suas finanças.

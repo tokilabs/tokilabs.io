@@ -1,0 +1,48 @@
+---
+pubDate: 2017-03-15
+author:
+    name: Saulo Vallory
+    link: /author/saulo-vallory
+title: Cleanify
+description: "Quando uma startup de limpeza do Vale do Silício precisava modernizar toda sua base de código sem quebrar tudo - como nossa equipe os ajudou a pensar diferente sobre TypeScript"
+link: https://cleanify.com
+image:
+    source: "@assets/images/logos/cleanify.jpg"
+    alt: "Logo da Cleanify"
+---
+
+Você conhece aquele momento quando você herda uma base de código e pensa "bom, isso vai ser interessante"? Foi exatamente assim que nossa equipe se sentiu quando mergulhamos no código da Cleanify em 2017. Era uma startup promissora de limpeza sob demanda no Vale do Silício, mas o código estava... vamos chamar de "organicamente desenvolvido."
+
+A questão sobre startups em movimento rápido é que elas priorizam entregar sobre estrutura. E honestamente, essa geralmente é a escolha certa no início. Mas a Cleanify havia chegado naquele ponto de inflexão onde a dívida técnica estava começando a desacelerá-los mais do que os ajudava a se moverem rápido.
+
+## O Desafio Real
+
+Claro, poderíamos dizer "base de código legada prejudicando o desenvolvimento" - é isso que consultores escrevem em relatórios. Mas a realidade era mais bagunçada que isso. A equipe deles era inteligente, mas estava escrevendo JavaScript como se fosse 2012. Erros de tipo estavam causando bugs que levavam horas para debugar. Desenvolvedores novos precisavam de semanas para entender como tudo se conectava.
+
+Lembro de estar sentado no escritório deles no centro de SF com nossa equipe, vendo um dos desenvolvedores passar uma manhã inteira rastreando um bug que o TypeScript teria pegado em cerca de três segundos. Foi aí que soubemos que a migração tinha que acontecer.
+
+## Como Realmente Fizemos
+
+A parte complicada não era a migração técnica - era manter a equipe deles produtiva enquanto reconstruíamos essencialmente a fundação por baixo deles. Já vimos migrações matarem a produtividade por meses, e startups não têm esse luxo.
+
+Nossa abordagem foi incremental. Começamos com os arquivos mais críticos, aqueles que quebram com mais frequência. Convertemos os modelos de dados primeiro, depois trabalhamos para fora. Cada arquivo convertido tinha que passar tanto na suíte de testes antiga quanto na nova.
+
+O momento decisivo veio cerca de três semanas depois. Sarah, uma das desenvolvedoras frontend deles, estava refatorando um componente e disse "Ah, agora entendi. O computador está realmente me ajudando a pensar." Foi aí que soubemos que a equipe deles estava começando a ver o TypeScript como uma ferramenta, não um obstáculo.
+
+## O Que Realmente Mudou
+
+Em seis meses, os relatórios de bugs deles caíram cerca de 60%. Não porque a lógica de negócio era mais simples, mas porque uma classe inteira de erros simplesmente... desapareceu. Os erros "undefined is not a function" que costumavam consumir tempo de debug se tornaram erros de compilação que eram pegos antes do deploy.
+
+Mas a vitória maior foi cultural. A equipe começou a pensar diferente sobre estrutura de código. Quando o sistema de tipos te força a ser explícito sobre o fluxo de dados, você naturalmente escreve código mais modular e testável.
+
+A velocidade de desenvolvimento deles na verdade aumentou após a migração, o que surpreendeu todo mundo. Acontece que quando você gasta menos tempo debugando erros bobos, tem mais tempo para construir funcionalidades.
+
+## A Parte Que Nos Surpreendeu
+
+O que não esperávamos era como a migração ajudou com onboarding. Desenvolvedores novos conseguiam entender a base de código mais rápido porque os tipos documentavam o comportamento pretendido. Tornou-se uma forma de documentação viva que realmente se mantinha atualizada.
+
+Também aprendemos algo sobre gestão de mudança. Os desenvolvedores que eram mais resistentes ao TypeScript no início se tornaram seus maiores defensores uma vez que experimentaram menos sessões de debug às 3 da manhã.
+
+Olhando para trás, a migração técnica foi a parte fácil. O verdadeiro desafio foi ajudar uma equipe a mudar seu modelo mental de "entregue rápido e conserte depois" para "entregue rápido e conserte cedo." TypeScript foi apenas a ferramenta que tornou isso possível.
+
+Essa abordagem funcionaria para toda startup? Provavelmente não. Mas para uma equipe que estava pronta para elevar suas práticas de engenharia, foi exatamente o que eles precisavam.

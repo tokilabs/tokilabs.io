@@ -1,5 +1,4 @@
 ---
-import Newsletter from "@components/blog/Newsletter.astro";
 import { getLangFromUrl, useTranslatedPath, useTranslations } from "@i18n/utils";
 import { Icon } from "astro-icon/components";
 
@@ -8,43 +7,55 @@ const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 ---
 
-<footer class="section min-h-screen gap-y-10 py-3 lg:gap-y-32">
+<footer class="section min-h-[30vh] gap-y-10 py-3 lg:gap-y-32">
 	<div class="relative flex-grow"></div>
 	<div class="relative grid grid-cols-6 gap-y-20 lg:grid-cols-12 lg:text-xl">
 		<div class="col-span-6 col-start-1 grid grid-cols-6 gap-6 lg:col-span-8">
 			<div class="col-span-2 col-start-4 flex flex-col gap-2 lg:col-span-3">
-				<a href="https://twitter.com//" target="_blank">Twitter / X</a>
-				<a href="https://www.instagram.com//" target="_blank">Instagram</a>
-				<a href="https://www.linkedin.com/" target="_blank">Linkedin</a>
-				<a href="https://tiktok.com/" target="_blank">TikTok</a>
+				<a href="https://github.com/tokilabs" target="_blank">GitHub</a>
+				<div class="relative mt-1 flex h-8 flex-col overflow-hidden">
+					<a href="https://wa.me/+5521981310876" class="block cursor-pointer overflow-hidden">+55 21 981.310.876</a>
+				</div>
+				<div class="relative mt-1 flex h-8 flex-col overflow-hidden">
+					<a href="mailto:hello@tokilabs.io" class="block cursor-pointer overflow-hidden">hello@tokilabs.io</a>
+				</div>
 			</div>
 			<div class="col-span-3 row-start-1 lg:col-span-2 lg:col-start-4 lg:row-start-auto">
 				<div class="flex flex-col gap-2">
 					<a href={translatePath("/")}>Home</a>
+					<a href={translatePath("/work/")}>Work</a>
 					<a href={translatePath("/blog/")}>Blog</a>
 					<a href={translatePath("/tags/")}>Tags</a>
-					<a href={translatePath("/contact/")}>{t("contacts")}</a>
+					<!-- <a href={translatePath("/contact/")}>{t("contacts")}</a>
 					<a href={translatePath("/terms/")}>Terms</a>
 					<a href={translatePath("/privacy/")}>Privacy Policy</a>
-					<a href={translatePath("/rss.xml")}>RSS</a>
+					<a href={translatePath("/rss.xml")}>RSS</a> -->
 				</div>
 			</div>
 			<div class="col-span-3 mt-10 lg:col-start-4">
 				<div class="relative flex flex-col overflow-hidden"></div>
-				<div class="relative mt-1 flex h-8 flex-col overflow-hidden">
-					<a href="mailto:test@mintaka.co" class="block cursor-pointer overflow-hidden">test@mintaka.co</a>
-				</div>
+				
 			</div>
 		</div>
 		<div class="col-span-6 row-start-1 text-5xl leading-tight lg:col-span-4 lg:row-start-auto lg:text-6xl">
-			<!-- Newsletter Section -->
-			<div>{t("footer.newsletter")}</div>
-			<div>{t("footer.newsletter2")}</div>
-			<Newsletter />
+			<!-- Contact Information -->
+			<div class="text-2xl lg:text-3xl">Let's Start a Partnership</div>
+			<div class="mt-8 text-base lg:text-lg">
+				<p class="text-slate-600">Ready to transform your next project?<br>We're here to help you discover the right solution.</p>
+			</div>
+			<br>
+			<div class="w-40 squircle-bg rounded-lg bg-zinc-900" data-cursor-hover data-cursor-parallax>
+				<a
+					class="flex h-10 items-center justify-center px-4 py-2 text-xl text-slate-200 transition-all hover:text-white md:font-bold lg:h-10"
+					aria-label="Contact Page"
+					href="mailto:hello@tokilabs.io">
+					{t("contact")}
+				</a>
+			</div>
 		</div>
 	</div>
 	<div class="relative mt-4 flex w-full items-end justify-between gap-y-4 text-sm lg:text-xl lg:font-normal">
-		<div>©2023 YOUR COMPANY</div>
+		<div>©2024 Toki Labs</div>
 		<!-- https://codepen.io/fliseno1k/pen/WNboLBy -->
 		<button
 			id="go-top-button"

@@ -17,45 +17,45 @@ const { seo: seoProp } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
 
-const shareImage = new URL("/images/meta/mintaka_share.gif", Astro.site).toString();
+const shareImage = new URL("/images/meta/majestico_share.gif", Astro.site).toString();
 
 const defaultSeo: AstroSeoProps = {
-	title: "Web Agency Leading in Performant Web Design Solutions - Mintaka Studio",
+	title: "Toki Labs - Software House That Works Differently | 21+ Years of Excellence",
 	description:
-		"Mintaka Studio excels in creating fast, user-friendly websites with a focus on aesthetic design and SEO optimization, ensuring a standout online presence",
-	canonical: "https://mintaka.co",
+		"We don't just build what you ask for. We partner with you to discover what you actually need. 21+ years of experience in complex system architecture, team building, and technical leadership.",
+	canonical: "https://tokilabs.io",
 	openGraph: {
-		url: "https://mintaka.co",
-		title: "Web Agency Leading in Performant Web Design Solutions - Mintaka Studio",
+		url: "https://tokilabs.io",
+		title: "Toki Labs - Software House That Works Differently",
 		description:
-			"Mintaka Studio excels in creating fast, user-friendly websites with a focus on aesthetic design and SEO optimization, ensuring a standout online presence",
+			"Instead of developing for clients, we seek and support partners. We thrive in complexity where others see chaos, delivering technology solutions that create positive change.",
 		images: [
 			{
 				url: shareImage,
 				width: 1200,
 				height: 630,
-				alt: "Social open graph",
+				alt: "Toki Labs - Software Factory",
 				type: "image/gif",
 			},
 			{
 				url: shareImage,
 				width: 4096,
 				height: 4096,
-				alt: "Twitter open graph",
+				alt: "Toki Labs - Software Factory",
 				type: "image/gif",
 			},
 		],
-		site_name: "Mintaka",
+		site_name: "Toki Labs",
 	},
 	twitter: {
-		handle: "@mintakastudio",
-		site: "@mintakastudio",
+		handle: "@svallory",
+		site: "@svallory",
 		cardType: "summary_large_image",
 	},
 	additionalMetaTags: [
 		{
 			name: "publisher",
-			content: "Mintaka Studio",
+			content: "Toki Labs",
 		},
 	],
 };

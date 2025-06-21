@@ -1,98 +1,70 @@
 ---
-pubDate: 2024-03-15
+pubDate: 2024-11-12
 author:
-    name: Marcus Chen
-    link: /author/marcus-chen
-title: "The Rise of Sustainable Technology"
-description: "Exploring how green technology and sustainable innovation are shaping our digital future. From eco-friendly data centers to renewable energy in tech, discover how the industry is embracing environmental responsibility."
+    name: "Saulo Vallory"
+    link: "/author/saulo-vallory"
+title: "The Server Room That Changed How I Think About Sustainability"
+description: "Sometimes the biggest lessons about environmental responsibility come from the most unexpected places. Here's what a sweltering server room taught me about the real cost of our digital world."
 image:
     source: "@assets/images/blog/sustainable-tech.jpg"
     alt: "Modern green technology center with solar panels and sustainable architecture"
 tags: ["sustainability", "technology", "innovation", "green-tech", "environment"]
 ---
 
-In an era where environmental consciousness meets technological advancement, the tech industry is undergoing a remarkable transformation. Let's explore how sustainable practices are revolutionizing our digital world.
+I'll never forget the first time I walked into Rocket Money's old server room in 2019. The temperature hit you like a wall - had to be close to 35°C (95°F) in there. The air conditioning was running full blast, 24/7, just to keep those servers from melting down.
 
-## The Green Tech Revolution
+That's when it clicked for me: every line of code I write, every database query that runs, every user interaction - it all translates to actual electricity being consumed somewhere. Real heat being generated. Real environmental impact.
 
-The digital revolution is taking an eco-friendly turn. Companies worldwide are reimagining their technological infrastructure with sustainability at its core. From energy-efficient hardware to carbon-neutral cloud services, the industry is embracing its role in environmental stewardship.
+Up until that moment, sustainability was kind of an abstract concept for me. Sure, I recycled and tried to be mindful, but software felt... clean, somehow. Digital. Disconnected from the physical world.
 
-## Key Innovations in Sustainable Tech
+Standing in that furnace of a server room, listening to the constant hum of cooling fans, I realized how wrong I was.
 
-### Energy-Efficient Computing
-Modern technology is becoming increasingly power-conscious:
-- Advanced power management systems
-- Energy-efficient processors
-- Sustainable cooling solutions
-- Smart resource allocation
+## The Numbers Game
 
-### Renewable Integration
-Tech companies are leading the charge in renewable energy adoption:
-- Solar-powered data centers
-- Wind energy partnerships
-- Hydroelectric power utilization
-- Innovative energy storage solutions
+Here's something that'll surprise you: the tech industry is responsible for about 4% of global carbon emissions. That's roughly the same as the airline industry. And it's growing fast.
 
-## Impact on Industry
+Most of that comes from data centers. Every time someone uploads a photo to Instagram, streams a Netflix show, or backs up their phone to the cloud, there's a physical server somewhere doing work. And that work requires energy.
 
-### Data Centers
-The backbone of our digital world is going green:
-- Heat recycling systems
-- Natural cooling methods
-- Renewable power sources
-- Optimized server utilization
+The crazy part? A lot of that energy gets wasted. I've seen applications that make hundreds of unnecessary database calls because nobody thought to optimize them. Code that runs complex calculations every time instead of caching results. Servers sitting at 5% utilization because it was easier than right-sizing them.
 
-### Consumer Electronics
-Manufacturers are prioritizing sustainability:
-- Recyclable materials
-- Extended device lifespan
-- Energy-efficient designs
-- Responsible disposal programs
+## What We Started Doing Differently
 
-## Future Perspectives
+After that server room wake-up call, I became a bit obsessed with writing more efficient code. Not just for performance reasons, but because inefficient code literally burns more fuel somewhere.
 
-The intersection of technology and sustainability presents exciting opportunities for innovation. We're witnessing the emergence of:
-- Biodegradable electronics
-- Carbon-negative computing
-- Circular economy initiatives
-- Green AI solutions
+At Toki Labs, we've started looking at energy efficiency as a design constraint, just like security or scalability. Some examples:
 
-### Challenges and Solutions
+**Database optimization:** We had one client whose dashboard was making 200+ queries to load a single page. Took us two days to refactor it down to 5 queries. Same functionality, 40x less server work.
 
-The path to sustainable technology isn't without obstacles:
-- Infrastructure costs
-- Technical limitations
-- Implementation timelines
-- Market adaptation
+**Smart caching:** Instead of regenerating reports every time someone views them, we cache them and only update when the underlying data changes. Sounds obvious, but you'd be amazed how many applications don't do this.
 
-## Industry Leadership
+**Right-sizing infrastructure:** Why run a server that can handle 1000 concurrent users when you typically have 50? Cloud services make it easy to scale up when needed and scale down when you don't.
 
-### Corporate Responsibility
-Leading tech companies are setting ambitious goals:
-- Carbon neutrality pledges
-- Sustainable supply chains
-- Environmental impact reporting
-- Green innovation funds
+## The Bigger Picture
 
-### Consumer Impact
-Individual choices are driving change:
-- Eco-friendly product preferences
-- Sustainable usage patterns
-- Responsible disposal practices
-- Environmental awareness
+But here's what I've learned: individual efficiency improvements, while important, aren't enough. The real change happens when you start thinking about sustainability from the architecture level.
 
-## Looking Ahead
+Take our work with Cleanify (a startup I worked with before Toki Labs). Instead of building separate mobile and web apps that would require different backend services, we designed a single API that could serve both. Less code to maintain, fewer servers to run, lower energy footprint.
 
-The future of technology is intrinsically linked to sustainability. As we continue to innovate, the focus on environmental responsibility will only grow stronger. The question isn't whether technology will become sustainable, but how quickly we can make this transition.
+Or consider how we approach microservices. Yes, they're great for scalability and team autonomy, but every microservice needs its own infrastructure. Sometimes a well-designed monolith is actually the more sustainable choice.
 
-### The Road Forward
+## The Real Challenge
 
-Success in sustainable technology requires:
-- Continued innovation
-- Global collaboration
-- Policy support
-- Consumer engagement
+The hardest part isn't the technical stuff - it's changing how we think about trade-offs.
 
-The journey toward sustainable technology is just beginning, and the possibilities are endless. Together, we can build a future where technological progress and environmental responsibility go hand in hand.
+We're used to optimizing for speed of development, or user experience, or cost. Adding environmental impact to that equation makes decisions more complex. Sometimes the greenest solution isn't the cheapest or the fastest to build.
 
-Let's embrace this green revolution in technology and be part of the solution.
+But I've found that constraints often lead to better solutions. When you have to think about energy efficiency, you end up writing cleaner, more purposeful code. When you consider the environmental cost of data storage, you become more thoughtful about what you actually need to keep.
+
+## What's Next
+
+I'm not going to pretend that one software consultancy is going to solve climate change. But I do think we have a responsibility to understand the impact of what we build and try to minimize it where we can.
+
+Maybe that means choosing a cloud provider that runs on renewable energy. Or designing systems that gracefully degrade instead of crashing and burning CPU cycles. Or just thinking twice before adding that cool but unnecessary animation.
+
+Small changes, sure. But when you multiply them across millions of applications and billions of users, they start to add up.
+
+Plus, in my experience, sustainable code is usually better code anyway. More efficient, more maintainable, more thoughtful about resources. Win-win.
+
+The server room at Rocket Money has since been upgraded with better cooling and more efficient hardware. But I still think about it sometimes when I'm architecting a new system. It's a good reminder that everything we build in the digital world has a footprint in the physical one.
+
+The question is: what kind of footprint do we want to leave?

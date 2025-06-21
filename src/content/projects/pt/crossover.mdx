@@ -1,0 +1,66 @@
+---
+pubDate: 2019-06-15
+author:
+    name: Saulo Vallory
+    link: /author/saulo-vallory
+title: Crossover for Work
+description: "Aquela vez que o Facebook puxou o tapete de baixo dos nossos pés e tivemos que reconstruir tudo em 30 dias com uma equipe de 40 pessoas espalhadas pelo mundo"
+link: https://crossover.com
+image:
+    source: "@assets/images/logos/crossover.svg"
+    alt: "Logo da Crossover"
+---
+
+Nunca vou esquecer a mensagem no Slack que mudou tudo: "Facebook está desligando o acesso à API do Instagram. Efetivo em 30 dias."
+
+Era junho de 2019, e eu era o Arquiteto Chefe de Produto na Crossover for Work. Tínhamos múltiplos produtos que dependiam fortemente dos dados do Instagram, incluindo o Chute, que era basicamente construído em torno dessa API. Trinta dias para reconstruir completamente a funcionalidade principal ou ver tudo desabar.
+
+Meu primeiro pensamento? Isso é impossível.
+
+Meu segundo pensamento? Bem, vamos fazer mesmo assim.
+
+## O Momento "Que Merda"
+
+Deixe-me pintar um quadro para vocês. Tínhamos uma equipe de desenvolvimento de 40 pessoas espalhadas pelo Brasil, Ucrânia, Filipinas, Índia e alguns outros países. Diferentes fusos horários, culturas diferentes, níveis diferentes de proficiência em inglês. E precisávamos todos trabalhando em coordenação perfeita para realizar o que parecia um milagre técnico.
+
+A reunião de emergência inicial foi... caótica. Pessoas falando umas por cima das outras, algumas entrando em pânico, outras tentando minimizar o escopo. Lembro de pensar, "Se passarmos mais de um dia planejando, não teremos tempo suficiente para executar."
+
+## Construindo a Sala de Guerra
+
+A primeira coisa que fiz foi configurar o que chamamos de "sala de guerra" - um canal no Slack que ficaria ativo 24/7. Mas mais importante, percebi que nosso processo normal de desenvolvimento ia nos matar. Code reviews? Foram embora. Ciclos longos de QA? Foram embora. Documentação perfeita? Adivinharam - foram embora.
+
+Em vez disso, quebramos tudo em sprints de 2 dias. Cada desenvolvedor tinha que entregar código funcionando a cada 48 horas, sem exceções. Se ficasse travado, levantava a mão imediatamente. Nada de sofrer em silêncio.
+
+O avanço veio quando convenci a gerência a emparelhar cada desenvolvedor sênior com um júnior de um fuso horário diferente. De repente, tínhamos desenvolvimento acontecendo 24 horas por dia, com transferência de conhecimento embutida.
+
+## As Ligações das 3 da Manhã
+
+Trabalhar com uma equipe global durante uma crise significa que seu celular nunca para de tocar. Fiquei muito bom em diagnosticar problemas de produção meio dormindo. Café virou um grupo alimentar.
+
+Por volta do dia 15, chegamos ao nosso ponto mais baixo. A nova integração de API estava funcionando, mas a performance estava terrível. Tipo, "usuários reclamando no Twitter" terrível. Lembro de estar na minha cozinha às 2 da manhã, numa videochamada com desenvolvedores em Kiev e Manila, tentando descobrir por que nossas consultas ao banco estavam levando 30 segundos.
+
+Descobrimos que estávamos fazendo chamadas de API dentro de loops aninhados. Erro clássico quando você está se movendo rápido. Mas aqui está a questão - normalmente, isso seria pego em code review. Não tínhamos esse luxo.
+
+## O Que Realmente Nos Salvou
+
+Duas coisas nos impediram do desastre:
+
+Primeiro, tínhamos uma líder de QA incrível chamada Maria que basicamente vivia no ambiente de staging. Ela pegou tantos problemas antes que chegassem à produção que comecei a chamá-la de nosso anjo da guarda.
+
+Segundo, fizemos amizade com a equipe de relações com desenvolvedores do Facebook. Passei horas em ligações com eles, entendendo não apenas o que estava mudando, mas por quê. Esse contexto nos ajudou a construir algo que duraria além da crise imediata.
+
+## A Semana Final
+
+A última semana foi brutal. Estávamos fazendo deploy várias vezes por dia, funcionando pura adrenalina e determinação. Acho que dormi umas 20 horas no total naquela semana.
+
+Mas algo lindo aconteceu. A equipe parou de ser uma coleção de indivíduos e se tornou algo mais. Pessoas estavam ajudando umas às outras a debugar código que não escreveram. Desenvolvedores estavam escrevendo documentação sem serem pedidos. A equipe ucraniana começava o dia checando problemas que a equipe brasileira havia sinalizado durante a noite.
+
+## O Que Aprendemos
+
+Entregamos no prazo? Sim. O código estava perfeito? Que nada. Mas funcionou, e nossos usuários nem notaram a transição.
+
+Mais importante, provamos algo para nós mesmos. Que uma equipe distribuída poderia mover montanhas quando tinha objetivos claros e confiava completamente uns nos outros.
+
+O sistema que construímos em 30 dias acabou sendo mais robusto que o original. Não porque planejamos melhor, mas porque construir sob pressão te força a focar no que realmente importa.
+
+Gostaria de fazer isso de novo? Provavelmente não. Mas fico feliz que fizemos uma vez. Nos mostrou o que é possível quando pessoas inteligentes decidem que o fracasso não é uma opção.

@@ -8,12 +8,14 @@ const translatePath = useTranslatedPath(lang);
 ---
 
 <section id="hero" class="section home-dark-section hero min-h-screen">
-	<div class="mx-auto flex h-full flex-col py-4 lg:py-10">
+	<div class="col-span-12 mx-auto flex h-full flex-col py-4 lg:py-10">
 		<div class="relative flex flex-1 flex-col justify-around rounded-lg pb-10 pt-20 lg:rounded-2xl">
 			<div class="flex justify-center">
-				<h1 class="text-center font-display text-5xl font-extrabold uppercase sm:text-7xl md:text-8xl lg:text-9xl">
-					<span>{t("hero.title.main")}</span>
-					<span class="rotator relative inline-flex h-20 w-full justify-center md:h-24 lg:h-32">
+				<h1 class="text-center font-display font-extrabold uppercase leading-tight">
+					<span class="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl">
+						{t("hero.title.main")}
+					</span>
+					<span class="rotator relative inline-flex min-h-[2.5rem] w-full justify-center text-3xl sm:min-h-[3rem] sm:text-4xl md:min-h-[4rem] md:text-5xl lg:min-h-[5rem] lg:text-6xl xl:min-h-[6rem] xl:text-7xl 2xl:min-h-[7rem] 2xl:text-8xl">
 						<span>{t("hero.title.1")}</span><span>{t("hero.title.2")}</span><span>{t("hero.title.3")}</span><span>
 							{t("hero.title.4")}
 						</span><span>{t("hero.title.1")}</span>
@@ -29,7 +31,7 @@ const translatePath = useTranslatedPath(lang);
 						<a
 							class="flex h-10 w-full max-w-52 flex-1 items-center justify-center px-4 py-2 text-xl text-slate-200 transition-all hover:text-white sm:w-auto md:font-bold lg:h-10"
 							aria-label="Contact Page"
-							href={translatePath("/contact/")}>
+							href="mailto:hello@tokilabs.io">
 							{t("contact")}
 						</a>
 					</div>
@@ -81,10 +83,27 @@ const translatePath = useTranslatedPath(lang);
 	/* Text rotator */
 	.rotator > span {
 		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		line-height: 1.1;
+		word-wrap: break-word;
+		hyphens: auto;
 	}
 
 	.rotator > span:not(:nth-child(1)) {
 		opacity: 0;
+	}
+
+	/* Responsive adjustments */
+	@media (max-width: 640px) {
+		.hero h1 {
+			line-height: 1.1;
+		}
 	}
 </style>
 
@@ -99,11 +118,11 @@ const translatePath = useTranslatedPath(lang);
 	function init() {
 		const childSplit = new SplitText(".hero h1", {
 			type: "lines",
-			linesClass: "split-child",
+			linesClass: "split-child +=split-parent",
 		});
-		const parentSplit = new SplitText(".hero h1", {
-			linesClass: "split-parent",
-		});
+		// const parentSplit = new SplitText(".hero h1", {
+		// 	linesClass: "split-parent",
+		// });
 
 		gsap.timeline()
 			.from(childSplit.lines, {
